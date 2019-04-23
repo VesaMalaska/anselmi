@@ -1,0 +1,26 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+.page-container {
+ background-image: url("../images/login-bg.jpg");
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.login-card {
+  background-color: rgba(255, 255, 255, 0.65);
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+  font-weight: 300;
+}
+.login-card a {
+  color: #68d;
+  font-weight: 400;
+  text-decoration: none;
+}
+.login-card a:hover {
+  color: #7ae;
+  font-weight: 400;
+  text-decoration: none;
+}

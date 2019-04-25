@@ -15,12 +15,6 @@ class Dashboard_overview extends MY_Controller {
 		// check is user in admin group
 		$data['isAdmin'] = $this->user_model->is_user_admin($userID);
 
-		// get the operator online status
-		$data['operatorOnlineStatus'] = $this->operator_model->get_operator_online_status($userID);
-
-		// test online operators check
-		$data['operatorsOnline'] = $this->operator_model->is_there_online_operators();
-
 		// load template library for handling the view
 		$this->load->library('template');
 

@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
 	<meta charset="utf-8">
 
   <!-- BOOTSTRAP CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   <!-- FONTAWESOME CSS -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!-- SITE STYLESHEET CSS -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 
@@ -20,25 +20,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- PAGE HEADING FONT -->
   <link href="https://fonts.googleapis.com/css?family=Cantata+One" rel="stylesheet">
 
-	<title>Chat Me Up!</title>
+	<title>Anselmi</title>
 
 </head>
 <body>
 
 <!-- -->
-
-<?php
-  if(!$operatorOnlineStatus){
-    $operatorOnlineSatusText = 'Offline';
-    $colorClass = 'text-danger';
-  } else if($operatorOnlineStatus == 1){
-    $operatorOnlineSatusText = 'Online';
-    $colorClass = 'text-success';
-  } else if($operatorOnlineStatus == 2){
-    $operatorOnlineSatusText = 'Busy';
-    $colorClass = 'text-warning';
-  }
-?>
 
 
 <div class="row p-0 m-0 h-100">
@@ -48,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<!-- LOGO -->
     <div class="logo-wrapper">
-      <a class="logo" href="<?php echo base_url(); ?>">Chat Me Up!</a>
+      <a class="logo" href="<?php echo base_url(); ?>">Anselmi</a>
     </div>
 
     <!-- OPERATOR CONTROLS -->
@@ -57,24 +44,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a class="" href="user" role="button">
           <img src="<?php echo base_url(); ?>assets/images/default-user.png" alt="<?php echo $username; ?>" class="rounded-circle user-pic-small">
           <?php echo $username; ?>
-          <i class="fas fa-circle <?php echo $colorClass; ?>" title="Status: <?php echo $operatorOnlineSatusText; ?>"></i>
+
         </a>
         <div class="operator-online-status-controls">
-          <div class="row mx-0">
-            <div class="col-3 pr-0 pt-1"><?php if($operatorOnlineStatus == 1) echo '<i class="fas fa-check"></i>'; ?></div>
-            <div class="col px-0"><a class="dropdown-item px-1" href="<?php echo base_url(); ?>Operator_status/change_operator_online_status/1">Online</a></div>
-            <div class="col-2 pl-0 pt-1"><i class="fas fa-circle text-success"></i></div>
-          </div>
-          <div class="row mx-0">
-            <div class="col-3 pr-0 pt-1"><?php if($operatorOnlineStatus == 2) echo '<i class="fas fa-check"></i>'; ?></div>
-            <div class="col px-0"><a class="dropdown-item px-1" href="<?php echo base_url(); ?>Operator_status/change_operator_online_status/2">Busy</a></div>
-            <div class="col-2 pl-0 pt-1"><i class="fas fa-circle text-warning"></i></div>
-          </div>
-          <div class="row mx-0">
-            <div class="col-3 pr-0 pt-1"><?php if($operatorOnlineStatus == 0) echo '<i class="fas fa-check"></i>'; ?></div>
-            <div class="col px-0"><a class="dropdown-item px-1" href="<?php echo base_url(); ?>Operator_status/change_operator_online_status/0">Offline</a></div>
-            <div class="col-2 pl-0 pt-1"><i class="fas fa-circle text-danger"></i></div>
-          </div>
+
           <div class="dropdown-divider"></div>
           <div class="row mx-0">
             <div class="col-3 pr-0 pt-1"><i class="fas fa-sign-out-alt"></i></div>
@@ -101,13 +74,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <nav class="vertical-nav" style="z-index:1;">
       <ul class="nav flex-column text-center">
         <li class="nav-item active">
-          <a class="nav-link" href="<?php echo base_url(); ?>">Dashasdfadsfa</a>
+          <a class="nav-link" href="<?php echo base_url(); ?>" data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Dashboard</em>"><i class="fas fa-tachometer-alt"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url(); ?>users"  data-toggle="tooltip" data-placement="right" data-html="true" title="<em>K&auml;ytt&auml;j&auml;t</em>"><i class="fas fa-user-cog"></i></a>
+          <a class="nav-link" href="<?php echo base_url(); ?>users" data-toggle="tooltip" data-placement="right" data-html="true" title="<em>K&auml;ytt&auml;j&auml;t</em>"><i class="fas fa-user-cog"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url(); ?>chat_session"  data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Chat-keskustelut</em>"><i class="far fa-comments"></i></a>
+          <a class="nav-link" href="<?php echo base_url(); ?>chat_session" data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Chat-keskustelut</em>"><i class="far fa-comments"></i></a>
+        </li>
+				<li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url(); ?>newsletter" data-toggle="tooltip" data-placement="right" data-html="true" title="<em>Uutiskirjeiden l&auml;hetys</em>"><i class="fas fa-mail-bulk"></i></a>
         </li>
       </ul>
     </nav>
@@ -115,10 +91,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <div class="col p-0">
 
+		<?php	if(isset($page_title)) { ?>
     <!-- PAGE HEADING -->
     <div class="container-fluid page-heading">
       <h2><?php echo $page_title; ?></h2>
     </div>
+		<?php	} ?>
 
     <div class="container-fluid py-3">
       <?php echo $body; ?>

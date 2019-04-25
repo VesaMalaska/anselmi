@@ -6,7 +6,7 @@ class MY_Controller extends CI_Controller
     {
       parent::__construct();
 
-      
+
 
       $this->load->helper('url');
   		$this->load->library('tank_auth');
@@ -22,11 +22,7 @@ class MY_Controller extends CI_Controller
 
 		// Load the needed models
 		$this->load->model('user_model');
-		$this->load->model('operator_model');
-
-		// Update operator status
-		$onlineStatusCode = $this->operator_model->get_operator_online_status($userID);
-		$this->operator_model->set_operator_online_status($userID, $onlineStatusCode);
+		
     }
 }
 ?>
